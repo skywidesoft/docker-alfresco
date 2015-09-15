@@ -4,17 +4,19 @@ set -e
 # vars
 export JAVA_HOME=/usr/java/latest
 ALF_HOME=/alfresco
-ALF_BIN=alfresco-community-5.0.b-installer-linux-x64.bin
+ALF_BIN=alfresco-community-5.0.d-installer-linux-x64.bin
 
 # satisfy dependencies
-yum install -y http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm
+#yum install -y http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+rpm -Uvh epel-release-7*.rpm
 yum install -y fontconfig libSM libICE libXrender libXext hostname libXinerama cups-libs dbus-glib
 yum install -y supervisor
 
 # get alfresco installer
 mkdir -p $ALF_HOME
 cd /tmp
-wget http://dl.alfresco.com/release/community/5.0.b-build-00092/$ALF_BIN
+wget http://dl.alfresco.com/release/community/5.0.d-build-00002/$ALF_BIN
 chmod +x $ALF_BIN
 
 # install alfresco

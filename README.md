@@ -25,17 +25,17 @@ Here is how you can help:
 # Installation
 Pull the image from the docker index.
 ```bash
-docker pull gui81/alfresco:latest
+docker pull skywidesoft/alfresco:latest
 ```
 
 or pull a particular version:
 ```bash
-docker pull gui81/alfresco:5.0.b-5
+docker pull skywidesoft/alfresco:5.0.d
 ```
 
 Alternatively, you can build the image yourself:
 ```bash
-git clone https://github.com/gui81/docker-alfresco.git
+git clone https://github.com/skywidesoft/docker-alfresco.git
 cd docker-alfresco
 docker build --tag="$USER/alfresco" .
 ```
@@ -44,13 +44,13 @@ docker build --tag="$USER/alfresco" .
 Run the alfresco image with the name "alfresco".
 
 ```bash
-docker run --name='alfresco' -it --rm -p 8080:8080 gui81/alfresco
+docker run --name='alfresco' -d -p 8080:8080 skywidesoft/alfresco
 ```
 
 **NOTE**: Please allow a few minutes for the application to start, especially if
 populating the database for the first time.
 
-Go to `http://localhost:8080` or point to the ip of your docker server.  On the
+Go to `http://localhost:8080/share` or point to the ip of your docker server.  On the
 Mac, if you are running boot2docker, then you can go to the ip reported by:
 
 ```bash
@@ -79,7 +79,7 @@ docker run --name='alfresco' -it --rm -p 445:445 -p 7070:7070 -p 8080:8080 \
     -e 'DB_USERNAME=alfresco' \
     -e 'DB_PASSWORD=admin' \
     -e 'DB_NAME=alfresco' \
-    gui81/alfresco
+    skywidesoft/alfresco
 ```
 
 **NOTE**: If %s is going to be used in a fleet/systemd file, then make sure
